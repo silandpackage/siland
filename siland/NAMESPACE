@@ -1,0 +1,36 @@
+
+import(graphics)
+import(stats)
+import(lme4)
+import(sp)
+import(rgdal)
+import(raster)
+importFrom("grDevices", "grey", "rainbow")
+import(fields)
+
+
+S3method(print, siland)
+S3method(summary, siland)
+S3method(AIC, siland)
+S3method(BIC, siland)
+S3method(fitted, siland)
+S3method(residuals, siland)
+export(summary.siland)
+export(print.siland)
+export(AIC.siland)
+export(BIC.siland)
+export(fitted.siland)
+export(residuals.siland)
+export(siland)
+export(plotsiland)
+export(plotcontri)
+export(plotsif)
+export(plotsiland.land)
+export(plotsiland.sif)
+export(siland.quantile)
+export(data.gis)
+export(land.gis)
+
+
+
+
