@@ -37,7 +37,7 @@ land.gis<-function(dsn,layer,varname,landname,wd=100,extentLand=NULL)
   {
     if(is.null(extentLand))
       extentLand=extent(landSIG)
-    r=raster(ncol=round(extent@ymax-extent@ymin)/wd, nrow=round(extent@xmax-extent@xmin)/wd)
+    r=raster(ncol=round(extentLand@ymax-extentLand@ymin)/wd, nrow=round(extentLand@xmax-extentLand@xmin)/wd)
     extent(r)=extentLand
     
     rland=rasterize(landSIG,r,landname[i],fun='max')
