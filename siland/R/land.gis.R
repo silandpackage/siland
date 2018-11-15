@@ -12,23 +12,22 @@ land.gis<-function(dsn,layer,varname,landname,wd=100,extentLand=NULL)
   #data read
   uu=as.numeric(landname)
   if(!is.na(sum(as.numeric(landname)))) cat("Warning : landname have not to be a number")
-  landSIG=readOGR(dsn=dsn,layer=layer)
+  landGIS=readOGR(dsn=dsn,layer=layer)
   
   #Transformation to binary landscape variables 
-  colnameslSIG=colnames(landSIG@data)
   m=c()
  
   for(j in 1:length(landname))
   {
     vec=c( )
-    vec=ifelse(landSIG@data[,varname]==landname[j],1,NA)
+    tmp=landGIS@data[,varname]
+    vec=ifelse(tmp==landname[j],1,NA)
     if (sum(vec,na.rm=T)==0){print(paste("No category",landname[j],"in the",varname,"variable."))}
     m=cbind(m,vec)
   }
   
-  
-  landSIG@data=cbind(landSIG@data,m)
-  colnames(landSIG@data)=c(colnameslSIG,landname)
+  landGIS@data=as.data.frame(m)
+  colnames(landGIS@data)=landname
   
   #discretisation of landscape variable 
   #creation of a list of matrix with discretized landscape variables
@@ -36,11 +35,10 @@ land.gis<-function(dsn,layer,varname,landname,wd=100,extentLand=NULL)
   for (i in 1:length(landname))
   {
     if(is.null(extentLand))
-      extentLand=extent(landSIG)
+      extentLand=extent(landGIS)
     r=raster(ncol=round(extentLand@ymax-extentLand@ymin)/wd, nrow=round(extentLand@xmax-extentLand@xmin)/wd)
     extent(r)=extentLand
-    
-    rland=rasterize(landSIG,r,landname[i],fun='max')
+    rland=rasterize(landGIS,r,landname[i],fun='max')
     rlandpos=as.data.frame(rasterToPoints(rland))
     colnames(rlandpos)=c("X","Y",landname[i])
     lobs[[i]]=rlandpos

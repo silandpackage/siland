@@ -124,7 +124,7 @@ siland<-function(loc.model,land=NULL,data,initSIF=NULL,sif="exponential",family=
   {
     #resoptim=optimize(myfun,interval=c(0,300000))
     #resoptim$par=resoptim$minimum
-	resoptim=optim(initSIF,myfun)
+	resoptim=optim(initSIF,myfun,method="Brent",lower=1,upper=30000)
   }
   
   paramSIF=resoptim$par
@@ -141,7 +141,7 @@ siland<-function(loc.model,land=NULL,data,initSIF=NULL,sif="exponential",family=
     restmp=glmer(formul,data=newdata,family=family ) 
   
   fit=predict(restmp)
-  err=residuals(fit)
+  err=residuals(restmp)
   loglik=as.vector(logLik(restmp))
   sd.error=NA
   if(family$family=="gaussian" & modelType=="GLM")
