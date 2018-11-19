@@ -94,6 +94,7 @@ siland<-function(loc.model,land=NULL,data,initSIF=NULL,sif="exponential",family=
   
   if(modelType=="GLM")
   {
+    
     myfun=function(d)
     {
     return(silandMinusLoglik(d,data=data,land=land,formula=formul,sif=sif,family=family))

@@ -38,6 +38,7 @@ print.siland<-function(x,...){
   cat(x$sd.error)
   cat("\t(No landscape effect) p-value: ")
   if(x$pval0==0) cat("<1e-16") else cat(x$pval0) 
+  cat("\n")
 }
 
 #print<-function(x,...){
@@ -167,6 +168,7 @@ calcscontri=function(distmoy,Distobs,idland=NULL,idobs=NULL,w=1,sif="exponential
 
 silandMinusLoglik<-function(d,data,land,formula,sif,family)
 {
+  options(warn=-1)
   #compute the minus loglikelihood for parameter  
   # of fis fucntion, that is the mean distance
   #data are local observations
@@ -189,12 +191,13 @@ silandMinusLoglik<-function(d,data,land,formula,sif,family)
     mloglik= 10^6
   else  
     mloglik=as.numeric(-logLik(rr))
-  
+  options(warn=0)
   invisible(return(mloglik))
 }
 
 silandMinusLoglikLMM<-function(d,data,land,formula,sif,family)
 {
+  options(warn=-1)
   #compute the minus loglikelihood for parameter  
   # of fis fucntion, that is the mean distance
   #data are local observations
@@ -218,11 +221,14 @@ silandMinusLoglikLMM<-function(d,data,land,formula,sif,family)
   else  
     mloglik=as.numeric(-logLik(rr))
   
+  options(warn=0)
+  
   invisible(return(mloglik))
 }
 
 silandMinusLoglikGLMM<-function(d,data,land,formula,sif,family)
 {
+  options(warn=-1)
   #compute the minus loglikelihood for parameter  
   # of fis fucntion, that is the mean distance
   #data are local observations
@@ -245,7 +251,7 @@ silandMinusLoglikGLMM<-function(d,data,land,formula,sif,family)
     mloglik= 10^6
   else  
     mloglik=as.numeric(-logLik(rr))
-  
+  options(warn=0)
   invisible(return(mloglik))
 }
 

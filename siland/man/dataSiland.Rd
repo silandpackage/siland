@@ -34,9 +34,11 @@ plot(landSiland[[1]],col=2,pch=".")
 points(landSiland[[2]],col=3,pch=".")
 #Locations of observations
 points(dataSiland[,c("X","Y")])
-
-
-
+res=siland(yp~locvar,land=landSiland,data=dataSiland,family=poisson)
+summary(res)
+#Model with random effect
+res=siland(yp~locvar+(1|Id),land=landSiland,data=dataSiland,family=poisson)
+summary(res)
 }
 \keyword{datasets}
 
