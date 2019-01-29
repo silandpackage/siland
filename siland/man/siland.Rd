@@ -83,7 +83,7 @@ Chandler R. and Hepinstall-Cymerman J. (2016) Estimating the spatial scales of l
 \donttest{
 data(dataSiland)
 data(landSiland)
-resE=siland(y~locvar,land=landSiland,data=dataSiland,sif="exponential",family=gaussian)
+resE=siland(y~locvar,land=landSiland,data=dataSiland,sif="exponential",family=poisson)
 resE
 resE$AIC
 }

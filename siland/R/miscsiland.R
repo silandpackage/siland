@@ -61,10 +61,10 @@ x<-object
   {
     l=length(x$pval)
     #respval=round(x$pval,5)
-    #respval[x$pval==0]="<1e-16"
+   
     
     cat("Coefficients:\n")
-    print(x$coefficients)
+    print(round(x$coefficients,4))
     
     if(x$modelType=="LMM" ||x$modelType=="GLMM")
     {
@@ -74,12 +74,13 @@ x<-object
     }
     cat("\n")
     cat("pvalue (L.R. Test):\n")
-    print(signif(x$pval,3))
+x$pval[x$pval==0]=1e-16
+    print(signif(x$pval,4))
     cat("\n")
     cat(paste("AIC: ",round(x$AIC,2), "\t", "AIC (no landscape): ",round(x$AIC0,2),sep=""))
     cat("\n")
     cat("(No landscape effect) p-value: ")
-    if(x$pval0==0) cat("<1e-16") else cat(x$pval0)
+    if(x$pval0 < 1e-16) cat("<1e-16") else cat(x$pval0)
   }
   else
   {
@@ -95,7 +96,7 @@ x<-object
     cat(paste("AIC: ",round(x$AIC,2), "\t", "AIC (no landscape): ",round(x$AIC0,2),sep=""))
     cat("\n")
     cat("(No landscape effect) p-value: ")
-    if(x$pval0==0) cat("<1e-16") else cat(x$pval0)
+    if(x$pval0< 1e-16) cat("<1e-16") else cat(x$pval0)
   }
 }
 
