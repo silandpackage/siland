@@ -28,9 +28,9 @@ summary(res2)
 
 siland.quantile(res2G,c(0.5,0.95))
 
-plotsiland(res2G,land=landCmoth,data=dataCmoth,var=1)
-plotsiland(res2G,land=landCmoth,data=dataCmoth,var=2)
-plotsiland(res2G,land=landCmoth,data=dataCmoth,var=0)
+plotsiland.land(res2G,land=landCmoth[c(1,2)],data=dataCmoth,var=1)
+plotsiland.land(res2G,land=landCmoth[c(1,2)],data=dataCmoth,var=2)
+plotsiland.land(res2G,land=landCmoth[c(1,2)],data=dataCmoth,var=0)
 
 
 
