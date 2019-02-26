@@ -4,6 +4,7 @@ library(siland)
 data(dataCmoth)
 data(landCmoth)
 
+
 #Data loading with data.gis() and land.gis() functions
 dataCmoth=data.gis(dsn="./GIS",layer="dataCarpo",varname="Cmoth")
 landCmoth1=land.gis(dsn="./GIS",layer="landCarpo",varname="OrgConv",landname = c("Org","Conv"),wd=100)
