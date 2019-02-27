@@ -4,11 +4,10 @@ library(siland)
 data(dataCmoth)
 data(landCmoth)
 
-
 #Data loading with data.gis() and land.gis() functions
-dataCmoth=data.gis(dsn="./GIS",layer="dataCarpo",varname="Cmoth")
-landCmoth1=land.gis(dsn="./GIS",layer="landCarpo",varname="OrgConv",landname = c("Org","Conv"),wd=100)
-landCmoth2=land.gis(dsn="./GIS",layer="landCarpo",varname="vine",landname = "vine",wd=100)
+dataCmoth=data.gis(dsn="./GIS",layer="dataCarpo",varname=c("Cmoth","trait"))
+landCmoth1=land.gis(dsn="./GIS",layer="landCarpo",varname="OrgConv",landname = c("org","conv"),wd=100)
+landCmoth2=land.gis(dsn="./GIS",layer="landCarpo",varname="Vine",landname = "vine",wd=100)
 landCmoth=c(landCmoth1,landCmoth2)
 names(landCmoth)
 
@@ -22,6 +21,8 @@ summary(res2G)
 #Estimation on a simulated example
 ?landSiland
 ?dataSiland
+data("dataSiland")
+data("landSiland")
 siland(loc.model= y~varloc+(1|Id), land=landSiland, data=dataSiland, sif="exponential", test=T, family="poisson")
 
 res2=siland(loc.model= Cmoth~trait, land=landCmoth[c(1,2)],data=dataCmoth, sif="exponential", test=T,family=gaussian)
