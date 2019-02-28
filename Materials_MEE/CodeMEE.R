@@ -6,8 +6,8 @@ data(landCmoth)
 
 #Data loading with data.gis() and land.gis() functions
 dataCmoth=data.gis(dsn="./GIS",layer="dataCarpo",varname=c("Cmoth","trait"))
-landCmoth1=land.gis(dsn="./GIS",layer="landCarpo",varname="OrgConv",landname = c("org","conv"),wd=100)
-landCmoth2=land.gis(dsn="./GIS",layer="landCarpo",varname="Vine",landname = "vine",wd=100)
+landCmoth1=land.gis(dsn="./GIS",layer="landCarpo",varname="OrgConv",landname = c("conv","org"),wd=40)
+landCmoth2=land.gis(dsn="./GIS",layer="landCarpo",varname="Vine",landname = "vine",wd=40)
 landCmoth=c(landCmoth1,landCmoth2)
 names(landCmoth)
 
