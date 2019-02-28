@@ -23,7 +23,7 @@ summary(res2G)
 ?dataSiland
 data("dataSiland")
 data("landSiland")
-siland(loc.model= y~varloc+(1|Id), land=landSiland, data=dataSiland, sif="exponential", test=T, family="poisson")
+siland(loc.model= y~locvar+(1|Id), land=landSiland, data=dataSiland, sif="exponential", test=T, family="poisson")
 
 res2=siland(loc.model= Cmoth~trait, land=landCmoth[c(1,2)],data=dataCmoth, sif="exponential", test=T,family=gaussian)
 summary(res2)
