@@ -34,5 +34,6 @@ plotsiland.land(res2G,land=landCmoth[c(1,2)],data=dataCmoth,var=1)
 plotsiland.land(res2G,land=landCmoth[c(1,2)],data=dataCmoth,var=2)
 plotsiland.land(res2G,land=landCmoth[c(1,2)],data=dataCmoth,var=0)
 
-
+plotsiland(res2G,landCmoth[c(1,2)],dataCmoth)
+plotsiland.sif(res2G)
 
