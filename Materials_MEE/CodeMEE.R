@@ -45,7 +45,7 @@ plotsiland.land(res2G,land=landCmoth[c(1,2)],data=dataCmoth,var=0)
 
 #Choice of the mesh 
 landCmothw200=land.gis(dsn="./GIS",layer="landCarpo",varname="OrgConv",landname = c("conv","org"),wd=200)
-res2Gw200=siland(loc.model=Cmoth~trait,land=landCmothw200,data=dataCmoth,sif="gaussian",test=T,family=gaussian)
+res2Gw200=siland(loc.model=Cmoth~trait,land=landCmothw200,data=dataCmoth,sif="gaussian",test=F,family=gaussian)
 summary(res2Gw200)
 landCmothw20=land.gis(dsn="./GIS",layer="landCarpo",varname="OrgConv",landname = c("conv","org"),wd=20)
 res2Gw20=siland(loc.model=Cmoth~trait,land=landCmothw20,data=dataCmoth,sif="gaussian",test=F,family=gaussian)
