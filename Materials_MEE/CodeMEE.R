@@ -1,7 +1,5 @@
 library(siland)
 
-
-
 #Importing data
 ##Data loading with data() function
 data(dataCmoth)
