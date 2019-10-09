@@ -35,8 +35,8 @@ Fsiland
 \donttest{
 data(dataSiland)
 data(landSiland)
-resE=Fsiland(y~locvar,land=landSiland,data=dataSiland,sif="exponential",family=gaussian)
-plotFsiland.sif(x=resE)
+res=Fsiland(obs~x1+L1+L2,land=landSiland,data=dataSiland,sif="exponential",family=gaussian)
+plotFsiland.sif(x=res)
 }
 
 }

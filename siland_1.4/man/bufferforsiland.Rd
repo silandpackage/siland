@@ -5,7 +5,7 @@
 Computes percentage of land use for buffers.
 }
 \description{
-Computes percentage for landscape variables. This function is adapted when ladscape varibales correspond to land uses, such as conventional, orchard, forest, etc... 
+Computes percentage for landscape variables. This function is adapted when landscape varibales correspond to land uses, such as conventional, orchard, forest or when landscape variables correspond to presence/absence. 
 }
 \usage{
 bufferforsiland(d, sfGIS, loc.sf, landnames, border = F)
@@ -13,7 +13,7 @@ bufferforsiland(d, sfGIS, loc.sf, landnames, border = F)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{d}{
-vector of distances to compute percentages for landscape uses given in landnames argument. The length of d has to be equal to that of landnames.
+vector of distances to compute percentages for landscape uses given in landnames argument. The length of d has to be equal to the length of landnames.
 }
   \item{sfGIS}{
 an object of class sf that gives the landscape variables (land uses). For land uses, landscape variables are equal to 1 or 0.
@@ -22,15 +22,15 @@ an object of class sf that gives the landscape variables (land uses). For land u
 an object of class sf or a dataframe that gives locations for center buffers. In the case of a dataframe, locations have to be given in columns "X" and "Y".
 }
   \item{landnames}{
-vector of characters that gives the names of landscape variables for which buffer are computed
+vector of characters that gives the names of landscape variables for which buffer are computed. Landnames have to correspond to enrties for sfGIS object.
 }
   \item{border}{
-a logical (False by default). If False distance are computed from the point given in loc.sf. If true distance are computed from the boudnary of the polygon that contain the points in loc.sf.
+a logical (False by default). If False, distances are computed from the point given in loc.sf. If True distances are computed from the boudnary of the polygons that contain the points in loc.sf.
 }
 }
 
 \value{
-a dataframe. Each column gives the percentage of landscape variables given in landnames and for buffer distances in d object
+a dataframe. Each column gives the percentage of landscape variables given in landnames and for buffer distances in d argument.
 }
 \author{
 Martin O.
