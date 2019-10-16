@@ -21,10 +21,15 @@ library(siland)
 library(dataSiland)
 library(landSiland)
 ```
-```{r,echo=TRUE,fig.width=7,fig.height=7,eval=FALSE}
+
+```{r,echo=FALSE,fig.width=7,fig.height=7}
 plot(st_geometry(landSiland))
+```
+```{r,echo=TRUE,fig.width=7,fig.height=7,eval=FALSE}
 sel=landSiland$L1==1
 plot(st_geometry(landSiland[sel,]),add=T,col=2)
+```
+```{r,echo=TRUE,fig.width=7,fig.height=7,eval=FALSE}
 sel=landSiland$L2==1
 plot(st_geometry(landSiland[sel,]),add=T,col=3)
 
