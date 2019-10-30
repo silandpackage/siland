@@ -320,6 +320,10 @@ quantileU=function(dm,q=0.9,l=3000)
 }
 
 
+
+  parens <- function(x) paste0("(",x,")")
+
+
 leg.col <- function(colr, niv){
 #add bar color scale for plotcontri  
   n <- length(colr)

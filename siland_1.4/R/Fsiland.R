@@ -6,7 +6,6 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   #this datraframe. The location of the obervations have to be given by varible "X" and "Y"
   # check arguments
   
-
   if (is.character(family)) 
   {
     if(!(family%in%c("gaussian","poisson","binomial")))
@@ -20,10 +19,6 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
     stop("'family' not recognized")
   }
   
-  
-  #if(!is.list(land))
-  #  stop("Problem: land argument has to be a list.")
-  
   if(!is.data.frame(data))
     stop("data argument have to be a dataframe.")
 
@@ -32,18 +27,6 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   
   #if(is.null(names(land)))
    # stop("Problem: list for argument land has to have names ")
-  
-  
-  model=as.formula(formula)
-  modelType="GLM"
-  termMix=findbars(model)
-  if(!is.null(termMix))
-  {
-    if(isTRUE(all.equal(family,gaussian())))
-      modelType="LMM"
-    else
-      modelType="GLMM"
-  }
   
   if(class(land)[1]!="list")
     land=list(land)
@@ -71,46 +54,89 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   if(sum(datanames%in%c("X","Y"))!=2)
     stop("Error: colnames X and Y for observations are not available in data argument")
   
+  model=as.formula(formula)
+  
+  modelType="GLM"
+  termMix=findbars(model)
+  if(!is.null(termMix))
+  {
+    if(isTRUE(all.equal(family,gaussian())))
+      modelType="LMM"
+    else
+      modelType="GLMM"
+  }
+  
+  ##### extract local and landscapes variables
   landnames=names(sfGIS[[1]])
-
+  termMix=findbars(model)
+  landnames=names(landSiland)
+  datanames=colnames(dataSiland)
+  
+  #labels(terms(model))
+  
+  allvars=all.vars(model)
   allvars=all.vars(model)
   vary=allvars[1]
+  allvars=allvars[-1]
   
+  localvars=datanames[datanames%in%allvars]
+  landvars=landnames[landnames%in%allvars]
   
-  #extract local variables
-  allocalvars=datanames[datanames%in%allvars]
-  localvars=allocalvars[!c(allocalvars%in%vary)]
-  if(length(localvars)==0)
-    localvars=NULL
   cat("Local variables: ")
-  cat(paste(localvars[!c(localvars%in%vary)]," "))
+  cat(paste(localvars,sep=" "))
   cat("\n")
   #extract landscape variables
-  landvars=landnames[landnames%in%allvars]
   if(length(landvars)==0)
     stop("No landscape variable in the model")  
   cat("Landscape variables: ")
   cat(paste(landvars,sep=" "))
   cat("\n")
+  
+  
   if(length(localvars)==0)
-    tmp=paste(landvars,collapse="+") 
-  else
-    tmp=paste(paste(localvars,collapse="+"), paste(landvars,collapse="+") , sep="+")
-  model=as.formula(paste(vary, "~",tmp))
+    model0=as.formula(paste(vary,"~1"))
+  labelsFormula=labels(terms(nobars(model)))
+  
+  sel=NULL
+  for(j in 1:length(labelsFormula))
+  {
+    finteraction=sum(grep(":",labelsFormula[j]))
+    if(finteraction==0)
+      sel=c(sel,labelsFormula[j]%in%datanames)  
+    else
+    {
+      u=unlist(strsplit(labelsFormula[j],":"))
+      if(sum(u%in%landnames)>0)
+        sel=c(sel,F)
+      else
+        sel=c(sel,T)
+    }
+  }
+  
+  if(is.null(termMix))
+  {
+    if(length(localvars)>0)
+      model0=as.formula( paste(paste(vary,"~",sep=""),paste(labelsFormula[sel],collapse="+") ,sep="" ) )
+    else
+      model0=as.formula(paste(paste(vary,"~",sep=""),paste("1",collapse="+"),sep="" ) )
+  }
+  
+  if(!is.null(termMix))
+  {
+    if(length(localvars)>0)
+      model0=as.formula( paste(paste(vary,"~",sep="") ,paste(labelsFormula[sel],collapse="+"),"+",paste(parens(termMix),collapse="+")  ,sep=" " ) )
+    else
+      model0=as.formula( paste(paste(vary,"~",sep="") ,paste(parens(termMix),collapse="+")  ,sep=" " ) )
+  }
   
   cat("Model: ")
   print(model,showEnv=F)
   
-  #model0 without landscape variables
-  if(length(localvars[!c(localvars%in%vary)])>0)
-    model0=as.formula( paste(paste(allvars[1],"~",sep=""),paste(localvars[!c(localvars%in%vary)],collapse="+"),sep="" ) )
-  else
-    model0=as.formula(paste(paste(allvars[1],"~",sep=""),paste("1",collapse="+"),sep="" ) )
-  
   cat("Model0: ")
   print(model0,showEnv=F)
   
- 
+  
+  ##### end extrcat local and landscape variables 
    # print(landvars)
   #initialisation algorithm
   if(is.null(initSIF))
@@ -144,7 +170,6 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
     landraster=landtoraster(sfGIS[[1]],landname = landvars,wd=wd,data=data[[1]])
   }
     
-  #landraster<<-landraster
   
   #surafce for a pixel in raster
   #suppose all pixels have same surface

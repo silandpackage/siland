@@ -6,6 +6,8 @@ Bsiland.lik<-function(res,land,data,varnames=NULL,seqd=seq(2,2000,length=10))
     stop("This function don't take into account mixed effects")
   if(res$modelType=="LMM")
     stop("This function don't take into account mixed effects")
+  if(is.null(varnames))
+    varnames=colnames(res$buffer)
   
   seqd=sort(c(seqd,res$parambuffer))
   
@@ -29,8 +31,6 @@ Bsiland.lik<-function(res,land,data,varnames=NULL,seqd=seq(2,2000,length=10))
   
   datanames<-names(data[[1]])
   landnames=names(sfGIS[[1]])
-  #order varnames in the same way that landnames
-  varnames=landnames[which(landnames%in%varnames)]
   
   if(sum(varnames%in%landnames)<length(varnames))
     stop("Error: Some varnames are not variable in object land ")

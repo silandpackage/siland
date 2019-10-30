@@ -16,7 +16,7 @@ Fsiland(formula,land,data,family ="gaussian",sif="exponential", initSIF = 50,
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{formula}{
-a symbolic description (see lm() or glm()) of the response variable concerning  variables. Random effects are allowed according to the syntax in package lme4 (see lmer() function in package lme4).
+a symbolic description (see lm() or glm()) of the response variable concerning local variables. Random effects are also allowed according to the syntax in package lme4 (see lmer() function in package lme4).
 }
   \item{land}{
 an object of class sf that gives the landscape variables for the model
@@ -32,11 +32,11 @@ the distribution of response variable. family can be "gaussian", "poisson" or "b
 the family of the spatial influence function. sif can be "exponential" or "gaussian". 
 }
   \item{initSIF}{
-a vector indicating the starting values for the estimation of the mean distance of the spatial influence functions. If one value is given, parameter for each spatial influnce function are initialised with this value. By default, initialisation is equal to 100 for each spatial influence function.
+a vector indicating the starting values for the estimation of the mean distance of the spatial influence functions. If one value is given, parameter for each spatial influnce function are initialised with this value. By default, initialisation is equal to 100 for each landscape variable.
 }
   
   \item{border}{
-a logical indicating if pixels into the field (polygon) where obervations are located have to be take into account to evaluate the influences. If border=T (by default), all pixels are take into accpount. If border=F, only pixels outside the polygon are condidered to evaluate influence for landscape variables.
+a logical indicating if pixels into the field (polygon) where obervations are located have to be take into account to evaluate the influences. If border=T (by default), all pixels are take into accpount. If Border=F, only pixels outside the fiels (polygon) are condidered to evaluate influnce for landscape variables.
 }
   
 \item{wd}{
@@ -87,7 +87,7 @@ Chandler R. and Hepinstall-Cymerman J. (2016) Estimating the spatial scales of l
 \donttest{
 data(dataSiland)
 data(landSiland)
-resF=Fsiland(obs~x1+L1+L2,land=landSiland,data=dataSiland,sif="exponential")
+resF=Fsiland(y~locvar,land=landSiland,data=dataSiland,sif="exponential")
 resF
 resF$AIC
 }

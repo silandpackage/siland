@@ -20,7 +20,7 @@ BsilandMinusLoglikLMM<-function(d,data,loc.sf,landnames,sfGIS,formula,family,bor
     newdata=rbind(newdata,cbind(data[[i]],matB[[i]]))
   }
   colnames(newdata)=c(colnames(data[[1]]),landnames)
-  resout=lmer(formula,data=newdata,family=family)
+  resout=lmer(formula,data=newdata)
   
   #if( inherits(rr <- try(glm(formula,data=newdata,family=family), silent = TRUE), "try-error"))
   #  mloglik= 10^6

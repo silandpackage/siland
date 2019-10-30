@@ -5,7 +5,7 @@
 Compute -(Log-likelihood) for models with different buffer sizes for landscape variables.
 }
 \description{
-This function allows to investigate some problem optimizations for function Bsiland by plotting the -(log-likelihhod) 
+This function allows to investigate some problem optimization for function Bsiland by plotting the -(log-likelihhod) 
 for models with different buffer sizes for landscape variables.
 }
 \usage{
@@ -14,11 +14,11 @@ Bsiland.lik(res, land,data, varnames = NULL, seqd = seq(2, 2000, length = 10))
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{res}{
-an object of class Bsiland obatined from Bsiland estimation
+an object from Bsiland estimation
 }
 
   \item{land}{
-The landscape (a sf object) that has been used to obtain the result res
+The landscape (a sf object) used to obtain the result res
 }
 
   \item{data}{
@@ -35,8 +35,9 @@ a vector of positives values that represent different buffer sizes for the lands
 \details{
 Estimation based on log-likelihood aims to find parameters that maximises log-likelihood, that is to say 
 that minimses -(log-likelihood). From graphics obtained with this fucntion, orange curve gives 
-the -(log-likelihood) for the estimated model. Others curves gives -(log-likelihood) by varying 
-buffer sizes for landscape variables. If minimisation for -(log-likelihood) has been correctly achieved, no curve should go below the orange one. Note that this condition is not sufficient to ensure that there is no better estimations pfor the paramters 
+the -(log-likelihood) obtained for the estimatd model. Others curves gives -(log-likelihood) by varying 
+buffer sizes for landscape variables. If minimisation for -(log-likelihood) for estimation 
+given in object res, no curve should go below the ornage one.
 }
 \value{
 %%  ~Describe the value returned

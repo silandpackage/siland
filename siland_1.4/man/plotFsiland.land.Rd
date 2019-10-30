@@ -2,7 +2,7 @@
 \alias{plotFsiland.land}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Spatial representation of the landscape influence for estimations with Fsiland() function
+Spatial representation of the landscape influence
 }
 \description{
 The function gives a spatial representation of landscape influence for the different variables. Representation can be done for each variable, or for the cumulative effects of all variables.
@@ -13,10 +13,10 @@ plotFsiland.land(x, land, data, var = 0, lw = 100, xlim=NULL, ylim=NULL)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-an object of class Fsiland obtained with function Fsiland().
+an object of class Fsiland obtained with fucntion Fsiland()
 }
   \item{land}{
-an object of class sf that gives the landscape variables.
+an object oc class sf that gives the landscape variables for observations.
 }
   \item{data}{
 a dataframe containing the response variable and the local variables. The dataframe must be the same than the 
@@ -51,10 +51,10 @@ Fsiland
 \donttest{
 data(dataSiland)
 data(landSiland)
-res=Fsiland(obs~x1+L1+L2,land=landSiland,data=dataSiland,sif="exponential",family=gaussian)
+resE=Fsiland(y~locvar,land=landSiland,data=dataSiland,sif="exponential",family=gaussian)
 
-plotFsiland.land(x=res,land=landSiland,data=dataSiland)
-plotFsiland.land(x=res,land=landSiland,data=dataSiland,var=1,lw=20)
+plotFsiland.land(x=resE,land=landSiland,data=dataSiland)
+plotFsiland.land(x=resE,land=landSiland,data=dataSiland,var=1,lw=20)
 }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

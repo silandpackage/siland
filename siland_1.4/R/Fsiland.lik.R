@@ -6,7 +6,8 @@ Fsiland.lik<-function(res,land,data,varnames=NULL,seqd=seq(2,2000,length=10))
     stop("This function don't take into account mixed effects")
   if(res$modelType=="LMM")
     stop("This function don't take into account mixed effects")
-  
+  if(is.null(varnames))
+    varnames=colnames(res$landcontri)
   
   resfind=findInterval(res$paramSIF,range(seqd))
   if(sum(resfind)==length(res$paramSIF))
@@ -19,7 +20,7 @@ Fsiland.lik<-function(res,land,data,varnames=NULL,seqd=seq(2,2000,length=10))
   if(class(data)[1]!="list")
     data=list(data)
   
-  if(length(data)!=length(land))
+  if(length(data)!=length(land)) 
     stop("The number of datasets for argument data have to be equal to the number of GIS objects for argument land")
   
   
@@ -69,10 +70,7 @@ Fsiland.lik<-function(res,land,data,varnames=NULL,seqd=seq(2,2000,length=10))
       geosel=unlist(lapply(stinter,function(x){if(length(x)==1) return(x) else return(-1000)} ))
       if(sum(geosel==-1000)>0)
         stop("Some observations are located outside of the boudaries of GIS landscape")
-      
       tmpsig[geosel,][[landvars[k]]]=0
-      
-      
       landraster[[k]]=landtoraster(tmpsig,landname = landvars[k],wd=res$wd)[[1]]
     }
     names(landraster)=landvars

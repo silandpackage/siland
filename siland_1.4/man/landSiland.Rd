@@ -9,11 +9,9 @@ A landscape with two landscape variables, named L1 and L2.
 }
 \usage{data("landSiland")}
 \format{
-  A data frame with 4884 observations on the following 6 variables.
+  A data frame with 4884 observations on the following 3 variables.
   \describe{
-    \item{\code{PARCELLE_I}}{a numeric vector}
-    \item{\code{AREA}}{a numeric vector}
-    \item{\code{PERIMETER}}{a numeric vector}
+   
     \item{\code{geometry}}{a sfc_MULTIPOLYGON}
     \item{\code{L1}}{a numeric vector for landscape variable L1}
     \item{\code{L2}}{a numeric vector for landscape variable L2}
