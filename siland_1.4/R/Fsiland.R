@@ -69,8 +69,6 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   ##### extract local and landscapes variables
   landnames=names(sfGIS[[1]])
   termMix=findbars(model)
-  landnames=names(landSiland)
-  datanames=colnames(dataSiland)
   
   #labels(terms(model))
   
@@ -93,8 +91,8 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   cat("\n")
   
   
-  if(length(localvars)==0)
-    model0=as.formula(paste(vary,"~1"))
+ # if(length(localvars)==0)
+#    model0=as.formula(paste(vary,"~1"))
   labelsFormula=labels(terms(nobars(model)))
   
   sel=NULL
@@ -115,7 +113,7 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   
   if(is.null(termMix))
   {
-    if(length(localvars)>0)
+    if(sum(sel)>0)
       model0=as.formula( paste(paste(vary,"~",sep=""),paste(labelsFormula[sel],collapse="+") ,sep="" ) )
     else
       model0=as.formula(paste(paste(vary,"~",sep=""),paste("1",collapse="+"),sep="" ) )
@@ -123,7 +121,7 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   
   if(!is.null(termMix))
   {
-    if(length(localvars)>0)
+    if(sum(sel)>0)
       model0=as.formula( paste(paste(vary,"~",sep="") ,paste(labelsFormula[sel],collapse="+"),"+",paste(parens(termMix),collapse="+")  ,sep=" " ) )
     else
       model0=as.formula( paste(paste(vary,"~",sep="") ,paste(parens(termMix),collapse="+")  ,sep=" " ) )

@@ -60,8 +60,8 @@ Bsiland<-function(formula,land,data,family="gaussian",initb=50,border=F)
   ##### extract local and landscapes variables
   landnames=names(sfGIS[[1]])
   termMix=findbars(model)
-  landnames=names(landSiland)
-  datanames=colnames(dataSiland)
+  
+
   
   #labels(terms(model))
   
