@@ -7,7 +7,11 @@ Author: Carpentier F. and Martin O.
 Maintainer: Martin Olivier <olivier.martin@inra.fr>
 Description: Method to estimate the spatial influence scales of landscape variables on a response variable. The method is based on Chandler and Hepinstall-Cymerman (2016) Estimating the spatial scales of landscape effects on abundance, Landscape ecology, 31: 1383-1394, <doi:10.1007/s10980-016-0380-z>.
 License: GPL (>=2.0) | file LICENSE
-Depends: base, graphics, stats
-Imports: lme4, sf, sp, raster, ggplot2, ggforce, fasterize, reshape2
+Depends: base, graphics, stats, sf
+Imports: lme4, sp, raster, ggplot2, ggforce, fasterize, reshape2
 NeedsCompilation: no
 Packaged: 2019-10-04 12:46:55 UTC; omartin
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
