@@ -77,8 +77,10 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   vary=allvars[1]
   allvars=allvars[-1]
   
-  localvars=datanames[datanames%in%allvars]
-  landvars=landnames[landnames%in%allvars]
+  #localvars=datanames[datanames%in%allvars]
+  #landvars=landnames[landnames%in%allvars]
+  localvars=allvars[allvars%in%datanames]
+  landvars=allvars[allvars%in%landnames]
   
   cat("Local variables: ")
   cat(paste(localvars,sep=" "))
