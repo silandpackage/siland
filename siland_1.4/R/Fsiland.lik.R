@@ -44,8 +44,10 @@ Fsiland.lik<-function(res,land,data,varnames=NULL,seqd=seq(2,2000,length=10))
   vary=allvars[1]
   
   #extract landscape variables
-  localvars=datanames[datanames%in%allvars]
-  landvars=landnames[landnames%in%allvars]
+  #localvars=datanames[datanames%in%allvars]
+  #landvars=landnames[landnames%in%allvars]
+  localvars=allvars[allvars%in%datanames]
+  landvars=allvars[allvars%in%landnames]
   if(is.null(varnames))
     varnames=landvars
   
