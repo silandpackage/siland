@@ -125,7 +125,7 @@ Fsiland.lik<-function(res,land,data,varnames=NULL,seqd=seq(2,2000,length=10))
     geom_vline(xintercept=res$paramSIF[selk],color=1:nvars,lty=2)+
     geom_hline(yintercept=-res$loglik,color="darkorange")+
     scale_color_manual(values=c(1:nvars,"darkorange"))
-  plot(pp)
+  #plot(pp)
   #if(sum(resfind)!=length(res$paramSIF))
   # options(warn=0)
   
