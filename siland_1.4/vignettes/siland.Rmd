@@ -13,6 +13,8 @@ output:
     
 
 
+
+
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
   %\VignetteEngine{knitr::rmarkdown}
