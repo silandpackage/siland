@@ -8,7 +8,7 @@ Estimation of landscape influence with buffers
 Bsiland is used to find the buffer size to estimate lanbdscape influence.
 }
 \usage{
-Bsiland(formula, land, data, family = "gaussian", initb = 50, border = F)
+Bsiland(formula, land, data, family = "gaussian", init = 200, border = F)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -24,8 +24,8 @@ a dataframe containing the response variable and the local variables.
   \item{family}{
 the distribution of response variable. family can be "gaussian", "poisson" or "binomial" and the associated link function are identity, log and logit respectively.
 }
-  \item{initb}{
-a vector indicating the starting values to estimate the buffer sizes. By default, buffer sizes are initialized to 100 for each variable.
+  \item{init}{
+a vector indicating the starting values to estimate the buffer sizes. By default, buffer sizes are initialized to 200 for each variable.
 }
   \item{border}{
 a logical indicating whereas the buffer are computed from the observation locations (border=F) or from the border of the polygon where observations are located (border=T)}
@@ -72,7 +72,7 @@ O. Martin and F. Carpentier
 \donttest{
 data(dataSiland)
 data(landSiland)
-resB=Bsiland(obs~x1+L1+L2,land=landSiland,data=dataSiland,initb = c(50))
+resB=Bsiland(obs~x1+L1+L2,land=landSiland,data=dataSiland,init = c(50))
 resB
 summary(resB)
 Bsiland.lik(resB,land=landSiland,data=dataSiland,varnames=c("L1","L2"),seqd=seq(50,1000,length=20))

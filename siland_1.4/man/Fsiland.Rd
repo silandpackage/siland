@@ -10,7 +10,7 @@ Fsiland is used to fit spatial influence of landscape.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-Fsiland(formula,land,data,family ="gaussian",sif="exponential", initSIF = 50,
+Fsiland(formula,land,data,family ="gaussian",sif="exponential", init = 100,
  border=F,wd=50)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -31,7 +31,7 @@ the distribution of response variable. family can be "gaussian", "poisson" or "b
 \item{sif}{
 the family of the spatial influence function. sif can be "exponential" or "gaussian". 
 }
-  \item{initSIF}{
+  \item{init}{
 a vector indicating the starting values for the estimation of the mean distance of the spatial influence functions. If one value is given, parameter for each spatial influnce function are initialised with this value. By default, initialisation is equal to 100 for each landscape variable.
 }
   

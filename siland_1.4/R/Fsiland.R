@@ -1,4 +1,4 @@
-Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=50,border=F,wd=50)
+Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",init=100,border=F,wd=50)
 {
   #land : a list of gis files (in case of several years) or one gis file (for one year) 
   #for the presence  of a landscape variable. The length of land list is the number of landscape varibale
@@ -139,12 +139,12 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
   ##### end extrcat local and landscape variables 
    # print(landvars)
   #initialisation algorithm
-  if(is.null(initSIF))
-    initSIF=rep(50,length(landvars))
-  if(length(initSIF)==1)
-    initSIF=rep(initSIF,length(landvars))
-  if(length(initSIF)>1 & (length(initSIF)!=length(landvars)))
-  stop("Problem : length(initSIF) and number of landscape variables have to be equal.")
+  if(is.null(init))
+    init=rep(50,length(landvars))
+  if(length(init)==1)
+    init=rep(init,length(landvars))
+  if(length(init)>1 & (length(init)!=length(landvars)))
+  stop("Problem : length(init) and number of landscape variables have to be equal.")
   
   
   #transform dataframe data in sf object
@@ -206,13 +206,13 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
  
   if(length(landraster)>1)
   {
-    #resoptim=optim(initSIF,myfun,lower=rep(0,length(land)),method="L-BFGS-B")
+    #resoptim=optim(init,myfun,lower=rep(0,length(land)),method="L-BFGS-B")
     #options(warn=-1)
-    #ppar=rep(1/100,length=length(initSIF))
-    #print(initSIF)
-    resoptim=optim(initSIF,myfun)
-    #resoptim=optim(par=initSIF,myfun,method="BFGS")
-    #resoptim=nlm(myfun,initSIF)
+    #ppar=rep(1/100,length=length(init))
+    #print(init)
+    resoptim=optim(init,myfun)
+    #resoptim=optim(par=init,myfun,method="BFGS")
+    #resoptim=nlm(myfun,init)
     #options(warn=0)
   }
   
@@ -221,7 +221,7 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",initSIF=
     resoptim=optimize(myfun,interval=c(0,1000))
     resoptim$par=resoptim$minimum
     options(warn=-1)
-	#resoptim=optim(initSIF,myfun,method="Brent",lower=1,upper=2000)
+	#resoptim=optim(init,myfun,method="Brent",lower=1,upper=2000)
 	options(warn=0)
   }
   

@@ -1,4 +1,4 @@
-Bsiland<-function(formula,land,data,family="gaussian",initb=50,border=F)
+Bsiland<-function(formula,land,data,family="gaussian",init=200,border=F)
 {
   #formula : an object of class formula
   #land : a list of gis files (in case of several years) or one gis file (for one year)
@@ -133,12 +133,12 @@ Bsiland<-function(formula,land,data,family="gaussian",initb=50,border=F)
   ##### end extrcat local and landscape variables 
   
   #initialisation algorithm
-  if(is.null(initb))
-    initb=rep(50,length(landvars))
-  if(length(initb)==1)
-    initb=rep(initb,length(landvars))
-  if(length(initb)>1 & (length(initb)!=length(landvars)))
-stop("Probelem : length(initb) and length(landnames) has to be equal.")
+  if(is.null(init))
+    init=rep(50,length(landvars))
+  if(length(init)==1)
+    init=rep(init,length(landvars))
+  if(length(init)>1 & (length(init)!=length(landvars)))
+stop("Probelem : length(init) and length(landnames) has to be equal.")
   
   
   
@@ -179,14 +179,14 @@ stop("Probelem : length(initb) and length(landnames) has to be equal.")
   if(length(landvars)>1)
   {
     #resoptim=optim(initSIF,myfun,lower=rep(0,length(land)),method="L-BFGS-B")
-    resoptim=optim(initb,myfun)
+    resoptim=optim(init,myfun)
   }
   
   if(length(landvars)==1)
   {
     #resoptim=optimize(myfun,interval=c(0,300000),minimum=T)
     #resoptim$par=resoptim$minimum
-	resoptim=optim(initb,myfun,method="Brent",lower=1,upper=5000)
+	resoptim=optim(init,myfun,method="Brent",lower=1,upper=5000)
   }
   
   paramBuffer=resoptim$par
