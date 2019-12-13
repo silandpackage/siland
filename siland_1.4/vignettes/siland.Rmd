@@ -1,24 +1,13 @@
 ---
-title: "Siland: Spatial Influence of Landscape"
+title: "Siland: Spatial Influence of landscape"
 author : "Florence Carpentier and Olivier Martin"
 date: "`r Sys.Date()`" 
-output: 
- html_document:
-    fig_caption: false
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
-    toc_depth: 3
+output: rmarkdown::html_vignette
     
-
-
-
-
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Siland: Spatial Influence of landscape}
   %\VignetteEngine{knitr::rmarkdown}
-  %\usepackage[utf8]{inputenc}
+  \usepackage[utf8]{inputenc}
   
 ---
 
