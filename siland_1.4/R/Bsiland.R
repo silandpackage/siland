@@ -197,7 +197,7 @@ stop("Probelem : length(init) and length(landnames) has to be equal.")
   newdata=NULL
   for(i in 1:length(loc.sf))
   {
-    matB[[i]]=bufferforsiland(paramBuffer,sfGIS=sfGIS[[1]],loc.sf=loc.sf[[i]],landnames=landvars,border=border)
+    matB[[i]]=bufferforsiland(paramBuffer,sfGIS=sfGIS[[i]],loc.sf=loc.sf[[i]],landnames=landvars,border=border)
     newdata=rbind(newdata,cbind(data[[i]],matB[[i]]))
   }
   valBuffer=newdata[,landvars]
