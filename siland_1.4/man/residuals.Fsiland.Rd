@@ -5,7 +5,7 @@
 Residuals for Fsiland
 }
 \description{
-Compute residuals 
+Compute residuals for a model estimated with Fsiland
 }
 
 \usage{

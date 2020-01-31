@@ -10,7 +10,7 @@ A dataframe for simulated observations and local variables.
 
 \usage{data("dataSiland")}
 \format{
-  A data frame with 98 observations on the following 5 variables.
+  A data frame with 100 observations on the following 5 variables.
   \describe{
     \item{\code{X}}{location on X-axis}
     \item{\code{Y}}{location on Y-axis}

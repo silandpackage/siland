@@ -6,8 +6,8 @@ Data set for codling moth counts
 }
 \description{
 The dataframe dataCmoth gives measurements for codling moth 
-counts in 54 orchards. X and Y give the locations for observed data. The number Cmoth is the count of collected
- larvae in cardborad traps wrapped around tree trunks. trait is a local variable that gives the number of traitements for codling moth in the orchard.
+counts in 54 orchards. X and Y give the locations for observed data. The number Cmoth is the mean count of collected
+ larvae in cardboard traps wrapped around tree trunks. trait is a local variable that gives the number of traitements for codling moth in orchards.
 
 }
 \usage{data("dataCmoth")}

@@ -5,7 +5,7 @@
 Plot results from Fsiland function
 }
 \description{
-Plot locations of observed data and locations of landscape variables. The locations of black points correspond to the locations of observed data, and the size is propotional to numeric values. The locations of different landscape variables are displayed with small points of different colours. Estimated mean distance of spatial influence for each landscape variable is indicated beside the graphic with a continuous line. Dashed line indicates the radius that gives 95 percent of the total influence of each landscape variable. 
+Plot locations of observed data and locations of landscape variables. The black points correspond to the locations of observed data, and the size is propotional to numeric values. The locations of different landscape variables are displayed with small points of different colours. Estimated mean distance of spatial influence for each landscape variable is indicated beside the graphic with a continuous line. Dashed line indicates the radius that gives 95 percent of the total influence of each landscape variable. 
 }
 \usage{
 plotFsiland(res, land, data)
@@ -17,7 +17,7 @@ plotFsiland(res, land, data)
   \item{res}{ an object obtained from the function Fsiland
 %%     ~~Describe \code{res} here~~
 }
-  \item{land}{a list with the location of the landscape variables. Each component of the list is a dataframe with two columns "X" and "Y" indicating the locations of each landscape variable.
+  \item{land}{an object of class sf that gives the landscape variables
 %%     ~~Describe \code{land} here~~
 }
   \item{data}{ a dataframe with the response variable and the local variables

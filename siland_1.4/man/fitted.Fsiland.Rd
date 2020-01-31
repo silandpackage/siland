@@ -2,10 +2,10 @@
 \alias{fitted.Fsiland}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Compute fiited values
+Compute fitted values
 }
 \description{
-Compute fiited values for an object of class Fsiland
+Compute fitted values for an object of class Fsiland
 }
 
 \usage{

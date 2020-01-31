@@ -43,6 +43,13 @@ print.Fsiland<-function(x,...){
   cat("\n")
   cat("(No landscape effect) p-value: ")
   if(x$pval0 < 1e-16) cat("<1e-16") else cat(x$pval0)
+  cat("\n")
+  
+  if(sum(x$paramSIF<(2*x$wd)))
+  {
+    warning("It is recommended that estimated SIF parameters be greater than 2*wd.
+    A new estimation with smaller wd should be appropriate (see argument wd in Fsiland).")
+  }
   
   
   #cat("\t(No landscape effect) p-value: ")
@@ -67,6 +74,15 @@ summary.Fsiland<-function(object,...)
   cat("-- Tests are given conditionnaly to the best SIF parameters --" )
   cat("\n")
   print(summaryx)
+  
+  if(sum(x$paramSIF<(2*x$wd)))
+  {
+    
+    warning("It is recommended that estimated SIF parameters be greater than 2*wd.
+    A new estimation with smaller wd should be appropriate (see argument wd in Fsiland).")
+   
+  }
+  
   
 }
 

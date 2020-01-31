@@ -5,7 +5,7 @@
 Estimation of landscape influence with buffers
 }
 \description{
-Bsiland is used to find the buffer size to estimate lanbdscape influence.
+Bsiland is used to estimate the buffer sizes for the influence of  landscape variables.
 }
 \usage{
 Bsiland(formula, land, data, family = "gaussian", init = 200, border = F)
@@ -13,10 +13,10 @@ Bsiland(formula, land, data, family = "gaussian", init = 200, border = F)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{formula}{
-a symbolic description (see lm() or glm()) of the response variable concerning local variables. Random effects are also allowed according to the syntax in package lme4 (see lmer() function in package lme4).
+a symbolic description (see lm() or glm()) of the response variable according to local and landscape variables. Random effects are also allowed according to the syntax in package lme4 (see lmer() function in package lme4).
 }
   \item{land}{
-an object of class sf that gives the landscape variables for the model.
+an object of class sf that gives the landscape variables.
 }
   \item{data}{
 a dataframe containing the response variable and the local variables.
@@ -38,7 +38,7 @@ a logical indicating whereas the buffer are computed from the observation locati
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-Fsiland returns an object of type list.
+Bsiland returns an object of type list.
 
 \item{coefficients}{vector of estimated coefficients}
 \item{parambuffer}{vector of estimated buffer distances}
@@ -75,8 +75,6 @@ data(landSiland)
 resB=Bsiland(obs~x1+L1+L2,land=landSiland,data=dataSiland,init = c(50))
 resB
 summary(resB)
-Bsiland.lik(resB,land=landSiland,data=dataSiland,varnames=c("L1","L2"),seqd=seq(50,1000,length=20))
-
 
 }
 

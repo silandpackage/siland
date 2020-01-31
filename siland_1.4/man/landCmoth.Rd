@@ -2,7 +2,7 @@
 \alias{landCmoth}
 \docType{data}
 \title{
-Data sets for landscape description: organic and conventional features.
+Data sets for landscape description.
 }
 \description{
 landCmoth is a sf object and gives the positions for three landscape variables: conv, org and vine.

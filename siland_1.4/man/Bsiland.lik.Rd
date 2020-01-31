@@ -5,7 +5,7 @@
 Compute -(Log-likelihood) for models with different buffer sizes for landscape variables.
 }
 \description{
-This function allows to investigate some problem optimization for function Bsiland by plotting the -(log-likelihhod) 
+This function allows to investigate some optimization problems for function Bsiland by plotting the -(log-likelihhod) 
 for models with different buffer sizes for landscape variables.
 }
 \usage{
@@ -18,11 +18,11 @@ an object from Bsiland estimation
 }
 
   \item{land}{
-The landscape (a sf object) used to obtain the result res
+the landscape (a sf object) used to obtain the result res.
 }
 
   \item{data}{
-the dataframe used to obtain the result res
+the dataframe used to obtain the result res.
 }
   \item{varnames}{
 landscape variables for which -(log-likelihhod) is studied. If varnames is null (by default), -(log-likelihhod) is investigated for 
@@ -34,10 +34,9 @@ a vector of positives values that represent different buffer sizes for the lands
 }
 \details{
 Estimation based on log-likelihood aims to find parameters that maximises log-likelihood, that is to say 
-that minimses -(log-likelihood). From graphics obtained with this fucntion, orange curve gives 
-the -(log-likelihood) obtained for the estimatd model. Others curves gives -(log-likelihood) by varying 
-buffer sizes for landscape variables. If minimisation for -(log-likelihood) for estimation 
-given in object res, no curve should go below the ornage one.
+that minimises -(log-likelihood). From graphics obtained with this function, orange curve gives 
+the -(log-likelihood) obtained for the estimated model. Others curves gives -(log-likelihood) by varying 
+buffer sizes for landscape variables. If minimisation for -(log-likelihood) obtained for object res occured correctly, no curve should go below the orange one. Otherwise, the obtained minimisation corresponds to a local minimum, and a new estimation should be proceed by changing starting point (see argument init in function Bsiland).
 }
 \value{
 %%  ~Describe the value returned

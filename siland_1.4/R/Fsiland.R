@@ -298,6 +298,12 @@ Fsiland<-function(formula,land,data,family="gaussian",sif="exponential",init=100
   if(modelType=="LMM" || modelType=="GLMM")
     nparam=length(resestim)+nrow(as.data.frame(rand.StdDev))
   
+  if(sum(paramSIF<(2*wd)))
+  {
+    warning("It is recommended that estimated SIF parameters be greater than 2*wd.
+    A new estimation with smaller wd should be appropriate (see argument wd in Fsiland).")
+  }
+  
   
   resFsiland=list(coefficients=resestim,paramSIF=paramSIF, formula=model,landcontri=landcontri,loglik=loglik,loglik0=loglik0,result=restmp, fitted=fit,
                  sif=sif,resoptim=resoptim,result=restmp,AIC=AIC,AIC0=AIC0, nparam=nparam,pval0=pval0,family=family,

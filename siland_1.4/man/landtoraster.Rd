@@ -17,13 +17,13 @@ landtoraster(landgis, landname, wd, data = NULL)
 an object of class sf 
 }
   \item{landname}{
-  Variable names for which raster points have to be computed.
+  variable names for which raster points have to be computed.
 }
   \item{wd}{
 a number that correpond to size  pixels for raster
 }
   \item{data}{
-a dataframe with positions X and Y. If a dataset is specified, the pixels in polygons 
+a dataframe with X and Y locations. If a dataframe is specified, the pixels in polygons 
 containing the points in the dataframe are deleted.
 }
   
@@ -36,7 +36,7 @@ containing the points in the dataframe are deleted.
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-a list of dataframes. The components of the list correspond to variables specifed in argument landname. Each dataframe gives the position X and Y for pixels in raster.
+a list of dataframes. The components of the list correspond to variables specifed in argument landname. Each dataframe gives the X and Y locations of pixels in raster.
 }
 
 

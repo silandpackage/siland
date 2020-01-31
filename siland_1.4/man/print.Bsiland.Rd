@@ -16,10 +16,10 @@ The function print an object of class Bsiland. It gives the model used and the  
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-an object of class Bsiland
+an object of class Bsiland.
 }
   \item{\dots}{
-the same arguments that the default print
+the same arguments that the default print.
 }
 }
 

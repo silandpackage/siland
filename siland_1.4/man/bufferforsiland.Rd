@@ -25,12 +25,12 @@ an object of class sf or a dataframe that gives locations for center buffers. In
 vector of characters that gives the names of landscape variables for which buffer are computed
 }
   \item{border}{
-a logical (False by default). If False distance are computed from the point given in loc.sf. If true distance are computed from the boudnary of the polygon that contain the points in loc.sf.
+a logical (False by default). If False distance are computed from the point given in loc.sf. If True distance are computed from the boudnary of the polygon that contain the points in loc.sf.
 }
 }
 
 \value{
-a dataframe. Each column gives the percentage of landscape variables given in landnames and for buffer distances in d object
+a dataframe. Each column gives the percentage of landscape variables given in landnames and for buffer distances in d argument.
 }
 \author{
 Martin O.

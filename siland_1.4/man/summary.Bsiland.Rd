@@ -2,11 +2,11 @@
 \alias{summary.Bsiland}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-The function gives a detailed summary of an object of class Bsiland
+The function gives a summary of an object of class Bsiland
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-The function gives a detailed summary of an object of class Fsiland. It aims to give 
+The function gives a detailed summary of an object of class Fsiland. It gives
 results as the summary for an object of type glm or lm.
 }
 

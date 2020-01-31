@@ -5,7 +5,7 @@
 Residuals for Bsiland
 }
 \description{
-Compute residuals 
+Compute residuals for a model estimated Bsiland function.
 }
 
 \usage{

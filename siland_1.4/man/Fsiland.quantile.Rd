@@ -6,7 +6,7 @@ Quantile computation for  spatial influence functions
 }
 \description{
 The function computes the radius for which the integrated influence for the 
-different landscape varaibles are equal to p.
+different landscape variables are equal to p.
 }
 \usage{
 Fsiland.quantile(x, p = 0.95)
@@ -38,8 +38,8 @@ O. Martin and F. Carpentier
 \donttest{
 data(dataSiland)
 data(landSiland)
-resE=Fsiland(y~locvar,land=landSiland,data=dataSiland,sif="exponential",family=gaussian)
-Fsiland.quantile(x=resE,p=c(0.5,0.95))
+resF=Fsiland(obs~x1+L1+L2,land=landSiland,data=dataSiland,sif="exponential")
+Fsiland.quantile(x=resF,p=c(0.5,0.95))
 }
 
 }

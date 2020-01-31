@@ -17,8 +17,8 @@ Compute fiited values for an object of class Bsiland
 
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{object}{ an object of class Bsiland}
-\item{\dots}{Dots are not take into account in this version}
+  \item{object}{ an object of class Bsiland.}
+\item{\dots}{Dots are not take into account in this version.}
 }
 
 \value{

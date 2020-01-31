@@ -73,13 +73,14 @@ Bsiland.lik<-function(res,land,data,varnames=NULL,seqd=seq(2,2000,length=10))
   linee=c("estimated model"=2)
   cols=c("estimated model"="darkorange")
   
+  mycolR=palette()
  
   pp=ggplot(matlik2, aes_string(x="Var2",y="value",group="Var1"))+geom_line(aes_string(color="Var1"))+
     xlab("Buffer radius")+ylab("- Log-likelihood")+
     theme(legend.position="top",legend.title=element_blank())+
-    geom_vline(xintercept=res$parambuffer[selk],color=1:nvars,lty=2)+
+    geom_vline(xintercept=res$parambuffer[selk],color=mycolR[1:nvars],lty=2)+
     geom_hline(yintercept=-res$loglik,lwd=1.5,color="darkorange")+
-    scale_color_manual(values=c(1:(nvars),"darkorange"))
+    scale_color_manual(values=c(mycolR[1:nvars],"darkorange"))
   #plot(pp)
     
   

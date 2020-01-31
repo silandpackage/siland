@@ -13,7 +13,7 @@ plotFsiland.sif(x)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
- must be an object of type Fsiland, that is an object resulting from function Fsiland().
+  an object obtained with function Fsiland().
 }
 }
 
@@ -29,14 +29,11 @@ Fsiland
 }
 
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 \donttest{
 data(dataSiland)
 data(landSiland)
-resE=Fsiland(y~locvar,land=landSiland,data=dataSiland,sif="exponential",family=gaussian)
-plotFsiland.sif(x=resE)
+resF=Fsiland(obs~x1+L1+L2,land=landSiland,data=dataSiland,sif="exponential")
+plotFsiland.sif(x=resF)
 }
 
 }
